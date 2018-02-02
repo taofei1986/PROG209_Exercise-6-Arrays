@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Database</title>
+  </head>
+  <body>
+    <div id="main"></div>
+  </body>
+  <script>
+
+  var planetNames = ["Jupiter", "Venus", "Saturn", "Mars","X-men","Plants-Zombies"];
+  var distancesFromEarth = [5.2, 0.72, 9.5, 1.5,100,1000];
+  var sunnyInAugust = [false, true, false, true,false,true];
+
+  //Display the planet information
+  for(var i = 0; i < planetNames.length; i++)
+  {
+    document.getElementById("main").innerHTML+="<label style=\"color:blue;font-size:2em;font-weight: bold\">"+planetNames[i]+"<label/>"+"<br/>";//display the planet name  blue and bold
+    document.getElementById("main").innerHTML+=distancesFromEarth[i]+"<br/>";
+    document.getElementById("main").innerHTML+=sunnyInAugust[i]+"<br/>";
+    if(sunnyInAugust[i])  //Find the sunny planets
+    {
+      document.getElementById("main").innerHTML+="<label style=\"color:red;\">This planet is sunny in August.</label>"+"<br/>";
+    }
+    document.getElementById("main").innerHTML+="----------------------------------------"+"<br/>";
+  }
+
+
+  //Find the closest planet
+
+  var closestPlanet = "";
+  var shortestDistance = 10;
+
+  for(var i = 0; i < planetNames.length; i++)
+  {
+    if(distancesFromEarth[i] < shortestDistance)
+    {
+      shortestDistance = distancesFromEarth[i];
+      closestPlanet = planetNames[i];  
+    }
+  }
+
+  console.log("Closest planet: " + closestPlanet);
+  console.log("Shortest distance: " + shortestDistance);
+
+  </script>
+</html>
